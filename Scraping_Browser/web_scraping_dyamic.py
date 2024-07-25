@@ -1,6 +1,5 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
 def get_driver():
     #set options
     options= webdriver.ChromeOptions()
@@ -10,20 +9,16 @@ def get_driver():
     options.add_argument("no-sandbox")
     options.add_experimental_option("excludeSwitches",["enable-automation"])
     options.add_argument("disable-blink-features=AutomationControlled")
-    web="http://automated.pythonanywhere.com/"
+
+    word = input("ENTER YOUR WORD TO EXPLAIN\n")
+    web="https://dictionary.cambridge.org/es/diccionario/ingles-espanol/help"
+    web = web.replace("help",word)
     driver = webdriver.Chrome(options=options)
     driver.get(web)
     return driver
 
-def clean(text):
-    """Extracts the temperature"""
-    output = float(text.split(": ")[1])
-    return output
 def main():
     driver = get_driver()
-    time.sleep(2)
     # element = driver.find_element(By.XPATH, "/html/body/div[1]/div/h1[1]")
-    element = driver.find_element(By.XPATH, '/html/body/div[1]/div/h1[2]')
-    return clean(element.text)
-
-print(main())
+    element = driver.find_element(By.XPATH, '//*[@id="dataset-caldes"]/div[2]/div[2]/div/span/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div')
+    return element.text
