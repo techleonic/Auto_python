@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
+from selenium.webdriver.common.keys import Keys
 def get_driver():
     #set options
     options= webdriver.ChromeOptions()
@@ -10,16 +11,17 @@ def get_driver():
     options.add_argument("no-sandbox")
     options.add_experimental_option("excludeSwitches",["enable-automation"])
     options.add_argument("disable-blink-features=AutomationControlled")
-    web="http://automated.pythonanywhere.com/"
+    web="http://automated.pythonanywhere.com/login/"
     driver = webdriver.Chrome(options=options)
     driver.get(web)
     return driver
 
 def main():
     driver = get_driver()
-    time.sleep(2)
     # element = driver.find_element(By.XPATH, "/html/body/div[1]/div/h1[1]")
-    element = driver.find_element(By.XPATH, '/html/body/div[1]/div/h1[2]')
-    return element.text
-
+    driver.find_element(By.ID, value="id_username").send_keys("automated")
+    time.sleep(2)
+    driver.find_element(By.ID, value="id_password").send_keys("automatedautomated"+Keys.RETURN)
+    driver.find_element(By.XPATH, value="/html/body/nav/div/a").click()
+    time.sleep(2)
 print(main())
