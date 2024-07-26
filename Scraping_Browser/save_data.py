@@ -41,7 +41,7 @@ def main():
         time.sleep(2)
         temp = driver.find_element(By.XPATH, value="/html/body/div[1]/div/h1[2]/div")
         text = clean_text(temp.text)
-        save_file(f"{currentime} : {text}\n")
+        save_file(f"Time: {currentime} Temp: {text}\n")
 
 
 print(main())
