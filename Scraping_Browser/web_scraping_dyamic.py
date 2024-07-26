@@ -22,3 +22,5 @@ def main():
     # element = driver.find_element(By.XPATH, "/html/body/div[1]/div/h1[1]")
     element = driver.find_element(By.XPATH, '//*[@id="dataset-caldes"]/div[2]/div[2]/div/span/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div')
     return element.text
+
+print(main())
