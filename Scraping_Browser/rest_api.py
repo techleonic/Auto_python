@@ -23,7 +23,7 @@ def get_news(topic, from_date, to_date, languaje="en"):
         file.write(content_format)
 
     for news in content["articles"]:
-        print(f"Title:{news["title"]}\nAutor:{news["author"]}\n\n")
+        print(f"Title:{news["title"]}\nAutor:{news["author"]}\n\nc")
 
 
 get_news("apple","2024-07-27","2024-07-27")
