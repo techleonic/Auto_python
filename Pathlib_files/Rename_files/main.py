@@ -24,6 +24,7 @@ for path in file_paths:
         print("is a file")
     if path.is_dir():
         print("is a Directory")
+    print(path.parts)
 
 
 
