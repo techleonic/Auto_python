@@ -6,7 +6,7 @@ from pathlib import Path
 
 root_path = Path("files")
 
-for path in root_path.glob("*.txt"):
+for path in root_path.rglob("*.txt"):
     if path.is_file():
         new_filepath = path.with_suffix(".csv")
         path.rename(new_filepath)
