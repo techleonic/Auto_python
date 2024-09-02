@@ -7,7 +7,7 @@ import os
 
 sender =  os.getenv("SENDER")
 password = os.getenv("PASSWORD")
-reciver  = "techleonic@gmail.com"
+reciver  = ""
 
 message  = MIMEMultipart()
 message["From"] = sender
