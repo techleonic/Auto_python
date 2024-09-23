@@ -6,6 +6,7 @@ flight_deals = gc.open("Flight Deals")
 
 price = flight_deals.worksheet("prices")
 
+
 list_of_prices = price.get_all_records()
 print(list_of_prices[0])
 
@@ -52,6 +53,7 @@ list_of_rows = [i+1 for i, value in enumerate(arrival_col) if value == search]
 for i in list_of_rows:
     print(price.row_values(i))
 
+
 #TODO: GET ROW WHERE TWO COLUMNS MATCHES
 arrival_search = "MIA"
 price_limit = 1000
@@ -71,3 +73,8 @@ for i in list_match_i:
 
 
 
+#TODO: UPDATE CELL
+price.update_cell(col=5, row=2,value=0)
+
+#TODO: UPDATE COLUMN
+price.update()
