@@ -6,7 +6,7 @@ flight_deals = gc.open("Flight Deals")
 
 price = flight_deals.worksheet("prices")
 
-
+"""
 list_of_prices = price.get_all_records()
 print(list_of_prices[0])
 
@@ -75,6 +75,16 @@ for i in list_match_i:
 
 #TODO: UPDATE CELL
 price.update_cell(col=5, row=2,value=0)
+"""
 
 #TODO: UPDATE COLUMN
-price.update()
+existing_column = price.get_values("E2:E34")
+new_column = [int(i[0]) for i in existing_column]
+print(new_column)
+# price.update("K1:K32",[["new_column"]]+new_column)
+
+#TODO:MEAN
+import statistics
+mean = statistics.mean(new_column)
+print(mean)
+price.update("E35", mean)
