@@ -1,3 +1,5 @@
+import time
+
 import gspread
 
 gc = gspread.service_account("keys/thermal-tome-432713-t4-ee838cf372a4.json")
@@ -87,4 +89,13 @@ print(new_column)
 import statistics
 mean = statistics.mean(new_column)
 print(mean)
-price.update("E35", mean)
+price.update("E35", str(mean))
+
+#TODO LISEN TO CHANGE VALUE IN A CELL
+change = flight_deals.worksheet("change")
+while True:
+    value1 = price.acell("E2").value
+    time.sleep(2)
+    value2 = price.acell("E2").value
+    if value1 == value2:
+        change.update("A2", value2)
