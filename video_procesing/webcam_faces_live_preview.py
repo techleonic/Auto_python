@@ -37,7 +37,7 @@ while success:
 
 # export de video to the taget vieo
 output.release()
-#release the video frame reading
+#release the video frame readingc
 video.release()
 #close all windows that are open
 cv2.destroyAllWindows()
