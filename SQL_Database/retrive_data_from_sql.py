@@ -17,6 +17,14 @@ print(cur.fetchall())
 cur.execute("SELECT * FROM 'ips' WHERE asn < 300")
 print(cur.fetchall())
 
-#CONDITIONALS
-cur.execute("SELECT * FROM 'ips' WHERE asn < 300")
+#CONDITIONALS ESPECIFIC
+cur.execute("SELECT * FROM 'ips' WHERE asn = 144")
 print(cur.fetchall())
+
+#CONDITIONALS WITH AND EVERY CHARACTER THAT ENDS WITH SA
+cur.execute("SELECT * FROM 'ips' WHERE asn < 300 AND domain LIKE '%sa'")
+results =  cur.fetchall()
+
+#ITERATES
+for rows in results:
+    print(rows[1])
