@@ -13,6 +13,7 @@ def define(word):
 word = input("enter a word: ")
 definition = define(word.lower())
 if definition:
-    print(definition)
+    for item in definition:
+        print(item)
 else:
     print("not found")
